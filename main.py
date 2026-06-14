@@ -19,6 +19,7 @@ parser.add_argument('-c', '--color', help="Color of the text", type=str, require
 parser.add_argument('-b', '--bg_color', help="Color of the background", type=str, required=True)
 parser.add_argument('-iw', '--img_width', help="Output image width", type=int, required=True)
 parser.add_argument('-ih', '--img_height', help="Output image height", type=int, required=True)
+parser.add_argument('-p', '--preview', help="Preview the image output without writing it", action="store_true")
 
 args = parser.parse_args()
 
@@ -52,13 +53,14 @@ def main():
     # Write the text to the image
     final.text((x, y), text, args.color)
 
-    # Write the image to temp and open it
-    image.show()
-
-    # Save the image to the current dir
-    output_path = get_output_path("output.png")
-    image.save(output_path)
-    print(f"Image saved to: {output_path}")
+    # Preview the image or save it
+    if args.preview is True:
+        image.show()
+    else:
+        # Save the image to the current dir
+        output_path = get_output_path("output.png")
+        image.save(output_path)
+        print(f"Image saved to: {output_path}")
 
 
 if __name__ == "__main__":
