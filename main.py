@@ -1,4 +1,5 @@
 import argparse
+import os
 
 import pyfiglet
 from PIL import Image, ImageDraw, ImageFont, ImageText
@@ -22,6 +23,19 @@ parser.add_argument('-ih', '--img_height', help="Output image height", type=int,
 args = parser.parse_args()
 
 
+def get_output_path(filename="output.png"):
+    """Function to generate the output filename checking if there is duplicates"""
+    root, ext = os.path.splitext(filename)
+    output_name = filename
+    counter = 1
+
+    while os.path.exists(output_name):
+        output_name = f"{root}_{counter}{ext}"
+        counter += 1
+
+    return output_name
+
+
 def main():
     image = Image.new(mode="RGB", size=(args.img_width, args.img_height), color=args.bg_color)
     ascii_art = pyfiglet.figlet_format(args.text, font=args.font, width=args.width or 80)
@@ -40,6 +54,11 @@ def main():
 
     # Write the image to temp and open it
     image.show()
+
+    # Save the image to the current dir
+    output_path = get_output_path("output.png")
+    image.save(output_path)
+    print(f"Image saved to: {output_path}")
 
 
 if __name__ == "__main__":

@@ -11,3 +11,6 @@ wheels/
 
 # Test script output
 test/output.txt
+
+# Output image
+output*.png
