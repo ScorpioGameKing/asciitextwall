@@ -81,7 +81,7 @@ I have included a tiny script to generate a text file with an example using all 
 > Scorpio: This example was run in a standard venv and utilizes newer flags
 
   ```sh
-  python main.py -t "Just Another $(date +%A)" -f "random" -s 30 -w 100 -c "#ebdbb2" -b "#282828" -n 'day_of_week.png'
+  python main.py -t "Just Another $(date +%A)" -f "random" -s 30 -w 100 -c "#ebdbb2" -b "#282828" -n 'day_of_week.png' -mf '/usr/share/fonts/TTF/AgaveNerdFontMono-Regular.ttf'
   ```
 
   ![example day of week](examples/example_day_of_week.png)
