@@ -1,16 +1,14 @@
 # Clean anything left by previous build
 rm -rf build/AsciiTextWall/
-rm -rf build/AsciiTextWall/res
 
 # Setup dir
 mkdir build/AsciiTextWall
 
 # Build as a standalone executable
-python -m nuitka --mode=onefile --no-deployment-flag=self-execution --product-name=AsciiTextWall --output-filename=AsciiTextWall main.py
+python -m nuitka --mode=onefile --output-filename=AsciiTextWall --no-deployment-flag=self-execution --python-flag=no_asserts --python-flag=no_docstrings --python-flag=no_site main.py
 
 # Move build and resources into the executable directory
 mv AsciiTextWall build/AsciiTextWall/AsciiTextWall
-cp -r res build/AsciiTextWall/
 
 # Final Clean up
 rm -rf main.build
