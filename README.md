@@ -11,25 +11,34 @@ Generate ascii text wallpapers using the `pyfiglet` and `pillow` Python librarie
 You can run `main.py` with the `-h`/`--help` argument to see all the options:
 
 ```
-usage: asciitextwall [-h] -t TEXT -f FONT -mf MONO_FONT -s SIZE [-w WIDTH] -c COLOR -b BG_COLOR -iw IMG_WIDTH -ih IMG_HEIGHT [-p]
+usage: asciitextwall [-h] -t TEXT -f FONT -s SIZE -c COLOR -b BG_COLOR [-w WIDTH] [-mf MONO_FONT] [-iw IMG_WIDTH] [-ih IMG_HEIGHT] [-n NAME] [-p]
 
 Simple tool to generate ascii text wallpapers
 
 options:
   -h, --help            show this help message and exit
+
+Required:
+  These options are hard required to generate an image
+
   -t, --text TEXT       Text to display
   -f, --font FONT       Pyfiglet font to use
-  -mf, --mono_font MONO_FONT
-                        Monospaced font to use
   -s, --size SIZE       Size of the text
-  -w, --width WIDTH     Width of the text. 80 by default
   -c, --color COLOR     Color of the text
   -b, --bg_color BG_COLOR
                         Color of the background
+
+Optional:
+  These are optional adjustments to the Image Generation Process
+
+  -w, --width WIDTH     Width of the text. 80 by default
+  -mf, --mono_font MONO_FONT
+                        Monospaced font to use, included font by default
   -iw, --img_width IMG_WIDTH
                         Output image width
   -ih, --img_height IMG_HEIGHT
                         Output image height
+  -n, --name NAME       The name of the generated image, 'output.png' by default
   -p, --preview         Preview the image output without writing it
 ```
 
@@ -65,3 +74,4 @@ I have included a tiny script to generate a text file with an example using all 
   ```
 
   ![example3](examples/example3.png)
+
