@@ -89,6 +89,6 @@ I have included a tiny script to generate a text file with an example using all 
 
 The above script generates, saves and sets the user's waypaper wallpaper to
 an Asciiwall generated image of `"Just Another {DATE}"`. By default it's 
-consuming to save disk space.
+consuming the existing file to save disk space.
 
 ![example day of week](examples/example_day_of_week.png)
