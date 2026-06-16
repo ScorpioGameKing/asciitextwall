@@ -1,1 +1,2 @@
 python main.py -t "Just Another $(date +%A)" -f "cosmic" -s 30 -w 100 -c "#ebdbb2" -b "#282828" -n 'test_name.png'
+waypaper --wallpaper './test_name.png'

@@ -36,8 +36,8 @@ def get_output_path(filename:str) -> str:
     root, ext = splitext(filename)
     output_name: str = filename
     counter = 1
-    while exists(path=filename):
-        output_name= f"{root}_{counter}{ext}"
+    while exists(path=output_name):
+        output_name = f"{root}_{counter}{ext}"
         counter += 1
     return output_name
 
