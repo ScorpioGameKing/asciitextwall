@@ -85,7 +85,7 @@ I have included a tiny script to generate a text file with an example using all 
 > [!NOTE]
 > Ensure you're in an venv or that your system has the dependencies required already installed globally
 
-- [Waypaper Asciiwall Automation](test/bash_gen.sh)
+- [Waypaper Asciiwall Automation](test/waypaper_wallpaper_automation.sh)
 
 The above script generates, saves and sets the user's waypaper wallpaper to
 an Asciiwall generated image of `"Just Another {DATE}"`. By default it's 
