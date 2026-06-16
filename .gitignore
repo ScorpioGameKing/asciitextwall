@@ -1,7 +1,6 @@
 # Python-generated files
 __pycache__/
 *.py[oc]
-build/
 dist/
 wheels/
 *.egg-info
@@ -19,5 +18,4 @@ output*.png
 .vscode/
 
 # Builds
-main.build/**
-main.bin
+build/AsciiTextWall
