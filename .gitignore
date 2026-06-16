@@ -19,3 +19,6 @@ output*.png
 
 # Builds
 build/AsciiTextWall
+main.build/
+main.dist/
+main.onefile-build/
