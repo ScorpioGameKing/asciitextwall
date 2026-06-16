@@ -23,6 +23,8 @@ Required:
 
   -t, --text TEXT       Text to display
   -f, --font FONT       Pyfiglet font to use
+  -mf, --mono_font MONO_FONT
+                        Monospaced font to use 
   -s, --size SIZE       Size of the text
   -c, --color COLOR     Color of the text
   -b, --bg_color BG_COLOR
@@ -32,8 +34,6 @@ Optional:
   These are optional adjustments to the Image Generation Process
 
   -w, --width WIDTH     Width of the text. 80 by default
-  -mf, --mono_font MONO_FONT
-                        Monospaced font to use, included font by default
   -iw, --img_width IMG_WIDTH
                         Output image width, 1920 by default
   -ih, --img_height IMG_HEIGHT

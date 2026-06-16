@@ -17,6 +17,7 @@ parser: ArgumentParser = ArgumentParser(
 required= parser.add_argument_group(title='Required', description='These options are hard required to generate an image')
 required.add_argument('-t', '--text', help="Text to display", type=str, required=True )
 required.add_argument('-f', '--font', help="Pyfiglet font to use", type=str, required=True)
+required.add_argument('-mf', '--mono_font', help="Monospaced font to use", type=str)
 required.add_argument('-s', '--size', help="Size of the text", type=int, required=True)
 required.add_argument('-c', '--color', help="Color of the text", type=str, required=True)
 required.add_argument('-b', '--bg_color', help="Color of the background", type=str, required=True)
@@ -24,7 +25,6 @@ required.add_argument('-b', '--bg_color', help="Color of the background", type=s
 # All optional arguments, when not found they will use the provided defaults
 optional= parser.add_argument_group(title='Optional', description='These are optional adjustments to the Image Generation Process')
 optional.add_argument('-w', '--width', help="Width of the text. 80 by default", type=int, default=80)
-optional.add_argument('-mf', '--mono_font', help="Monospaced font to use, included font by default", type=str, default='res/M-1m/mplus-1m-regular.ttf')
 optional.add_argument('-iw', '--img_width', help="Output image width, 1920 by default", type=int, default=1920)
 optional.add_argument('-ih', '--img_height', help="Output image height, 1080 by default", type=int, default=1080)
 optional.add_argument('-n', '--name', help="The name of the generated image, 'output.png' by default", type=str, default='output.png')
