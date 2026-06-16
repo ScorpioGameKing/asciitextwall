@@ -11,7 +11,7 @@ Generate ascii text wallpapers using the `pyfiglet` and `pillow` Python librarie
 You can run `main.py` with the `-h`/`--help` argument to see all the options:
 
 ```
-usage: asciitextwall [-h] -t TEXT -f FONT -s SIZE -c COLOR -b BG_COLOR [-w WIDTH] [-mf MONO_FONT] [-iw IMG_WIDTH] [-ih IMG_HEIGHT] [-n NAME] [-p]
+usage: asciitextwall [-h] -t TEXT -f FONT -s SIZE -c COLOR -b BG_COLOR [-w WIDTH] [-mf MONO_FONT] [-iw IMG_WIDTH] [-ih IMG_HEIGHT] [-n NAME] [-o OUTPUT] [-ic] [-p]
 
 Simple tool to generate ascii text wallpapers
 
@@ -39,6 +39,8 @@ Optional:
   -ih, --img_height IMG_HEIGHT
                         Output image height, 1080 by default
   -n, --name NAME       The name of the generated image, 'output.png' by default
+  -o, --output OUTPUT   The location of the generated image, local by default
+  -ic, --increment      Decide if the saved image is incremented or overwritten, not incremented by default
   -p, --preview         Preview the image output without writing it
 ```
 
@@ -75,3 +77,18 @@ I have included a tiny script to generate a text file with an example using all 
 
   ![example3](examples/example3.png)
 
+## Automation Examples
+
+> [!NOTE]
+> Automation examples are WIP, results may vary
+
+> [!NOTE]
+> Ensure you're in an venv or that your system has the dependencies required already installed globally
+
+- [Waypaper Asciiwall Automation](test/bash_gen.sh)
+
+The above script generates, saves and sets the user's waypaper wallpaper to
+an Asciiwall generated image of `"Just Another {DATE}"`. By default it's 
+consuming to save disk space.
+
+![example day of week](examples/example_day_of_week.png)
