@@ -10,8 +10,8 @@ Generate ascii text wallpapers using the `pyfiglet` and `pillow` Python librarie
 
 You can run `main.py` with the `-h`/`--help` argument to see all the options:
 
-```
-usage: asciitextwall [-h] -t TEXT -f FONT -s SIZE -c COLOR -b BG_COLOR [-w WIDTH] [-mf MONO_FONT] [-iw IMG_WIDTH] [-ih IMG_HEIGHT] [-n NAME] [-o OUTPUT] [-ic] [-p]
+```sh
+usage: asciitextwall [-h] -t TEXT -f FONT [-mf MONO_FONT] -s SIZE -c COLOR -b BG_COLOR [-w WIDTH] [-iw IMG_WIDTH] [-ih IMG_HEIGHT] [-n NAME] [-o OUTPUT] [-ic] [-p]
 
 Simple tool to generate ascii text wallpapers
 
@@ -22,9 +22,9 @@ Required:
   These options are hard required to generate an image
 
   -t, --text TEXT       Text to display
-  -f, --font FONT       Pyfiglet font to use
+  -f, --font FONT       Pyfiglet font to use, use 'random' for a random font
   -mf, --mono_font MONO_FONT
-                        Monospaced font to use 
+                        Monospaced font to use
   -s, --size SIZE       Size of the text
   -c, --color COLOR     Color of the text
   -b, --bg_color BG_COLOR
@@ -55,7 +55,7 @@ I have included a tiny script to generate a text file with an example using all 
 
 - Using kanagawa dragon colors
 
-  ```
+  ```sh
   uv run main.py -t "i use arch, btw" -f "dos_rebel" -mf "/usr/share/fonts/TTF/MesloLGMNerdFont-Regular.ttf" -s 20 -w 100 -c "#c5c9c5" -b "#181616" -iw 1920 -ih 1080
   ```
 
@@ -63,7 +63,7 @@ I have included a tiny script to generate a text file with an example using all 
 
 - Using tokyonight dark colors
 
-  ```
+  ```sh
   uv run main.py -t "qwrty" -f "bloody" -mf "/usr/share/fonts/noto/NotoSansMono-Regular.ttf" -s 40 -w 100 -c "#a9b1dc" -b "#1a1b2c" -iw 1920 -ih 1080
   ```
 
@@ -71,24 +71,32 @@ I have included a tiny script to generate a text file with an example using all 
 
 - Using grubvox dark colors
 
-  ```
+  ```sh
   uv run main.py -t "testing" -f "delta_corps_priest_1" -mf "/usr/share/fonts/TTF/DejaVuSansMono.ttf" -s 20 -w 100 -c "#ebdbb2" -b "#282828" -iw 1920 -ih 1080
   ```
 
   ![example3](examples/example3.png)
 
-## Automation Examples
+  > [!NOTE]
+  > Scorpio: This example was run in a venv and utilizes newer flags
 
-> [!NOTE]
-> Automation examples are WIP, results may vary
+  ```sh
+  python main.py -t "Just Another $(date +%A)" -f "random" -s 30 -w 100 -c "#ebdbb2" -b "#282828" -n 'day_of_week.png'
+  ```
 
-> [!NOTE]
-> Ensure you're in an venv or that your system has the dependencies required already installed globally
+  ![example day of week](examples/example_day_of_week.png)
 
-- [Waypaper Asciiwall Automation](test/waypaper_wallpaper_automation.sh)
+## Building
 
-The above script generates, saves and sets the user's waypaper wallpaper to
-an Asciiwall generated image of `"Just Another {DATE}"`. By default it's 
-consuming the existing file to save disk space.
+You can create a standalone single file executeable using the included 
+`build.sh`. To do so you will require `nuitka` and your platform specifc
+dependencies.
 
-![example day of week](examples/example_day_of_week.png)
+### Linux
+
+- `patchelf` (Must be below version 18.0.0+, `pip install patchelf` or similar should work)
+
+With the dependencies installed, run `build.sh` and once it's finished you
+can find the executeable file in `build/AsciiTextWall`. From there you can call
+it like any other application and add it to your path for access from
+anywhere.
