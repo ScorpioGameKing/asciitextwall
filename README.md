@@ -35,9 +35,9 @@ Optional:
   -mf, --mono_font MONO_FONT
                         Monospaced font to use, included font by default
   -iw, --img_width IMG_WIDTH
-                        Output image width
+                        Output image width, 1920 by default
   -ih, --img_height IMG_HEIGHT
-                        Output image height
+                        Output image height, 1080 by default
   -n, --name NAME       The name of the generated image, 'output.png' by default
   -p, --preview         Preview the image output without writing it
 ```

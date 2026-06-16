@@ -24,8 +24,8 @@ required.add_argument('-b', '--bg_color', help="Color of the background", type=s
 optional= parser.add_argument_group(title='Optional', description='These are optional adjustments to the Image Generation Process')
 optional.add_argument('-w', '--width', help="Width of the text. 80 by default", type=int, default=80)
 optional.add_argument('-mf', '--mono_font', help="Monospaced font to use, included font by default", type=str, default='res/M-1m/mplus-1m-regular.ttf')
-optional.add_argument('-iw', '--img_width', help="Output image width", type=int, default=1920)
-optional.add_argument('-ih', '--img_height', help="Output image height", type=int, default=1080)
+optional.add_argument('-iw', '--img_width', help="Output image width, 1920 by default", type=int, default=1920)
+optional.add_argument('-ih', '--img_height', help="Output image height, 1080 by default", type=int, default=1080)
 optional.add_argument('-n', '--name', help="The name of the generated image, 'output.png' by default", type=str, default='output.png')
 optional.add_argument('-p', '--preview',  help="Preview the image output without writing it", action="store_true")
 
