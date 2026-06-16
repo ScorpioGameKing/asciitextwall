@@ -17,3 +17,7 @@ output*.png
 
 # vscode / codium
 .vscode/
+
+# Builds
+main.build/**
+main.bin
