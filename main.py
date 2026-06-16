@@ -5,7 +5,8 @@ from PIL.Image import Image as pImage
 from PIL import Image, ImageDraw, ImageFont, ImageText
 from argparse import ArgumentParser, Namespace
 from pyfiglet import figlet_format, FigletString
-from os.path import exists, splitext
+from os.path import exists, splitext, expanduser
+from os import remove
 
 parser: ArgumentParser = ArgumentParser(
     prog='asciitextwall',
@@ -27,6 +28,8 @@ optional.add_argument('-mf', '--mono_font', help="Monospaced font to use, includ
 optional.add_argument('-iw', '--img_width', help="Output image width, 1920 by default", type=int, default=1920)
 optional.add_argument('-ih', '--img_height', help="Output image height, 1080 by default", type=int, default=1080)
 optional.add_argument('-n', '--name', help="The name of the generated image, 'output.png' by default", type=str, default='output.png')
+optional.add_argument('-o', '--output', help="The location of the generated image, local by default", type=str, default='.')
+optional.add_argument('-ic', '--increment', help="Decide if the saved image is incremented or overwritten, not incremented by default", action="store_true")
 optional.add_argument('-p', '--preview',  help="Preview the image output without writing it", action="store_true")
 
 args: Namespace = parser.parse_args()
@@ -34,11 +37,15 @@ args: Namespace = parser.parse_args()
 def get_output_path(filename:str) -> str:
     """Function to generate the output filename checking if there is duplicates"""
     root, ext = splitext(filename)
-    output_name: str = filename
-    counter = 1
-    while exists(path=output_name):
-        output_name = f"{root}_{counter}{ext}"
-        counter += 1
+    output_name: str = f"{expanduser(path=args.output)}{filename}"
+    if args.increment:
+        counter = 1
+        while exists(path=output_name):
+            output_name = f"{expanduser(path=args.output)}{root}_{counter}{ext}"
+            counter += 1
+    else:
+        if exists(path=output_name):
+            remove(path=output_name)
     return output_name
 
 def main() -> None:
