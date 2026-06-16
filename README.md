@@ -10,7 +10,7 @@ Generate ascii text wallpapers using the `pyfiglet` and `pillow` Python librarie
 
 You can run `main.py` with the `-h`/`--help` argument to see all the options:
 
-```sh
+```
 usage: asciitextwall [-h] -t TEXT -f FONT [-mf MONO_FONT] -s SIZE -c COLOR -b BG_COLOR [-w WIDTH] [-iw IMG_WIDTH] [-ih IMG_HEIGHT] [-n NAME] [-o OUTPUT] [-ic] [-p]
 
 Simple tool to generate ascii text wallpapers
@@ -77,8 +77,8 @@ I have included a tiny script to generate a text file with an example using all 
 
   ![example3](examples/example3.png)
 
-  > [!NOTE]
-  > Scorpio: This example was run in a venv and utilizes newer flags
+> [!NOTE]
+> Scorpio: This example was run in a standard venv and utilizes newer flags
 
   ```sh
   python main.py -t "Just Another $(date +%A)" -f "random" -s 30 -w 100 -c "#ebdbb2" -b "#282828" -n 'day_of_week.png'
